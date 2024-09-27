@@ -1,0 +1,232 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+                WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Height="550" 
+        Width="910"
+        FontFamily="Consolas">
+    <Grid Background="Black">
+
+
+
+        <Image Grid.Column="0"
+               Width="300"
+               Source="/images/main.png"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Bottom"/>
+
+        <Border Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="859"
+                Height="463"
+                Background="Pink"
+                CornerRadius="15">
+
+
+            <Grid>
+
+                <TextBlock Grid.Row="0"
+                           Text="Создать учётную запись"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 30 300"
+                           FontSize="30"
+                           FontWeight="SemiBold"/>
+                <StackPanel Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="130,104,429,255">
+                    <materialDesign:PackIcon Kind="Person"
+                                             Margin="0 40 3 0"
+                                             Width="25"
+                                             Height="25"/>
+                    <TextBox Width="146"
+                                     FontSize="17"
+                                     Name="TbLogin"
+                                     materialDesign:HintAssist.HelperText="Не менее 5 символов"
+                                     materialDesign:TextFieldAssist.HasClearButton="True"
+                                     materialDesign:HintAssist.Hint="введите логин" Height="26" RenderTransformOrigin="1.769,0.447" Margin="0,0,25,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                                        Margin="464,104,195,255">
+                    <materialDesign:PackIcon Kind="Password"
+                                                         Margin="0 40 3 0"
+                                                         Width="25"
+                                                         Height="25"/>
+                    <PasswordBox Width="156"
+                                             FontSize="17"
+                                             Name="PdPassword"
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                             materialDesign:HintAssist.Hint="Введите пароль"
+                                             materialDesign:HintAssist.HelperText="Не менее 8 символов" Height="28" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                                Margin="130,170,425,218">
+                    <materialDesign:PackIcon Kind="Phone"
+                                             Margin="0 25 3 0"
+                                             Width="25"
+                                             Height="25"/>
+                    <TextBox Width="166"
+                             FontSize="17"
+                             Name="TbPhone"
+                             materialDesign:HintAssist.HelperText="в формате + 7 777 777 77 77"
+                             materialDesign:TextFieldAssist.HasClearButton="True"
+                             materialDesign:HintAssist.Hint="Введите моб тел" Height="28"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                                Margin="130,250,429,187">
+                    <materialDesign:PackIcon Kind="Email"
+                                             Margin="0 2 3 0"
+                                             Width="25"
+                                             Height="25"/>
+                    <TextBox Width="283"
+                             FontSize="17"
+                             Name="TbEmail"
+                             materialDesign:HintAssist.HelperText="email@"
+                             materialDesign:TextFieldAssist.HasClearButton="True"
+                             materialDesign:HintAssist.Hint="Введите адрес электронной почты" Height="40" TextChanged="TbEmail_TextChanged"/>
+
+
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                                Margin="130,294,429,125">
+                    <CheckBox Content="Политика конфиденциальности информации"
+                              IsChecked="True"
+                              Background="Black"
+                              IsEnabled="False" Height="50" Width="325"/>
+
+
+
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                                Margin="130,320,395,79">
+                    <CheckBox Content="Продублировать регистрационные данные на email"
+                              IsChecked="True"
+                              Cursor="Hand"
+                              Background="Black" Height="48"/>
+
+
+
+
+                </StackPanel>
+
+                <Separator Background="Gray"
+                               Height="5"
+                               Width="380"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               VerticalAlignment="Bottom"/>
+
+                <StackPanel     Grid.Column="1"
+                                Grid.Row="2"
+                                Margin="0 350 0 0"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                    <Button BorderBrush="Black"
+                            BorderThickness="1"
+                            x:Name="BtnCreate"
+                            materialDesign:ButtonProgressAssist.Value="1"
+                            materialDesign:ButtonProgressAssist.IndicatorBackground="Transparent"
+                            materialDesign:ButtonProgressAssist.IndicatorForeground="Black"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  Kind="Create"/>
+                            <TextBlock Text="Создать учетную запись"/>
+
+
+                        </StackPanel>
+                    </Button>
+
+                    <TextBlock TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="10 0 0 0">
+                        <Run>Или войти в </Run>
+                        <Run TextDecorations="Underline"
+                             FontWeight="SemiBold"
+                             Cursor="Hand">Систему</Run>
+
+
+
+
+
+                    </TextBlock>
+
+
+
+
+
+
+
+
+
+
+                </StackPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </Grid>
+
+        </Border>
+    </Grid>
+</Window>
+                
+
+
+
+

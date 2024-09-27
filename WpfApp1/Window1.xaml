@@ -1,0 +1,116 @@
+﻿<Window x:Class="WpfApp1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+                WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Title="InfoWindow" Height="550" Width="910"
+        FontFamily="Consolas">
+    <Grid Background="Black">
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <DataGrid x:Name="DataUserInfo"
+                      FontSize="15"
+                      Height="320"
+                      Width="580"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      CanUserSortColumns="False"
+                      Background="White"
+                      RowBackground="LightGray"
+                      AlternatingRowBackground="White"
+                      GridLinesVisibility="Horizontal"
+                      ColumnHeaderHeight="50"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      CanUserResizeRows="False"
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="Auto"
+                                        Header="ЛОГИН"
+                                        Binding="{Binding UserLogin}"
+                                        FontSize="15"
+                                        Foreground="Black"/>
+                    <DataGridTextColumn Width="Auto"
+                                        Header="ПАРОЛЬ"
+                                        Binding="{Binding UserPassowrd}"
+                                        FontSize="15"
+                                        Foreground="Black"/>
+                    <DataGridTextColumn Width="Auto"
+                                        Header="МОБ.ТЕЛЕФОН"
+                                        Binding="{Binding UserPhone}"
+                                        FontSize="15"
+                                        Foreground="Black"/>
+                    <DataGridTextColumn Width="Auto"
+                                        Header="ЭЛ.ПОЧТА"
+                                        Binding="{Binding UserEmail}"
+                                        FontSize="15"
+                                        Foreground="Black"/>
+
+
+
+
+                </DataGrid.Columns>
+
+
+
+            </DataGrid>
+
+
+
+
+
+
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 30">
+            <Button BorderBrush="White"
+                    Background="Transparent"
+                    BorderThickness="1"
+                    x:Name="BtnBack"
+                    Click="BtnBack_Click"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    materialDesign:ButtonProgressAssist.Value="1"
+                    materialDesign:ButtonProgressAssist.IndicatorBackground="Transparent"
+                    materialDesign:ButtonProgressAssist.IndicatorForeground="White"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    IsEnabled="{Binding DataContext.ControlsEnabled,
+                    RelativeSource={RelativeSource FindAncestor,AncestorType=Window}}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Update"
+                                             Margin="0 0 3 0"
+                                             Foreground="{Binding ElementName=BtnBack,Path=BorderBrush}"/>
+                    <TextBlock Text="На главную"
+                               Foreground="{Binding ElementName=BtnBack,Path=BorderBrush}"/>
+                </StackPanel>
+
+
+
+
+
+
+
+
+            </Button>
+
+
+
+
+
+
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
